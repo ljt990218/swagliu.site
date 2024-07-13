@@ -77,30 +77,15 @@ export const projectList = [
     name: 'Projects',
     content: [
       {
-        name: 'Nuxt Blog',
-        desc: 'My blog site, base on Nuxt',
-        path: 'https://github.com/chansee97/nuxt-blog',
+        name: 'vue3-vant-mobile',
+        desc: 'An mobile web apps template based on the Vue 3 ecosystem.',
+        path: 'https://github.com/easy-temps/vue3-vant-mobile',
       },
       {
-        name: 'Nova Admin',
-        desc: 'a complete admin template',
-        path: 'https://github.com/chansee97/nova-admin',
-      },
-      {
-        name: 'Nova Admin Nest',
-        desc: 'The nest backend for nova admin',
-        path: 'https://github.com/chansee97/nove-admin-nest',
-      },
+        name: 'vue3-varlet-mobile',
+        desc: 'An mobile web apps template based on the Vue 3 ecosystem.',
+        path: 'https://github.com/easy-temps/vue3-varlet-mobile',
+      }
     ],
-  },
-  {
-    name: 'Starter',
-    content: [
-      {
-        name: 'Virtuoso',
-        desc: 'My simply vue starter',
-        path: 'https://github.com/chansee97/virtuoso',
-      },
-    ],
-  },
+  }
 ]

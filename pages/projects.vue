@@ -21,7 +21,6 @@ import { projectList } from '@/site.config'
             </div>
             <div class="text-sm op-70">{{ project.desc }}</div>
           </div>
-
         </a>
       </div>
     </article>
