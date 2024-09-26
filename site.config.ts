@@ -77,6 +77,16 @@ export const projectList = [
     name: 'Projects',
     content: [
       {
+        name: 'vue3-todolist',
+        desc: 'vue3-todolist.',
+        path: 'https://github.com/ljt990218/vue3-todolist',
+      },
+      {
+        name: 'todolist-nest',
+        desc: 'todolist-nest.',
+        path: 'https://github.com/ljt990218/todolist-nest',
+      },
+      {
         name: 'vue3-vant-mobile',
         desc: 'An mobile web apps template based on the Vue 3 ecosystem.',
         path: 'https://github.com/easy-temps/vue3-vant-mobile',
