@@ -95,7 +95,12 @@ export const projectList = [
         name: 'vue3-varlet-mobile',
         desc: 'An mobile web apps template based on the Vue 3 ecosystem.',
         path: 'https://github.com/easy-temps/vue3-varlet-mobile',
-      }
+      },
+      {
+        name: 'Auto-FoldX',
+        desc: 'Auto-FoldX.',
+        path: 'https://github.com/ljt990218/Auto-FoldX',
+      },
     ],
-  }
+  },
 ]
