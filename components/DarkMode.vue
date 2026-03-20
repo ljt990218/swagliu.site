@@ -1,36 +1,25 @@
 <script setup lang="ts">
-import { useStorage} from '@vueuse/core'
+import { useStorage } from '@vueuse/core'
 
-let mode = useStorage('mode', 'light')
-let isDark = mode.value === 'dark'
+const mode = useStorage<'light' | 'dark'>('mode', 'light')
+const isDark = computed(() => mode.value === 'dark')
 
-function toggleDark() {
-  const root = document.documentElement
-  isDark = root.classList.contains('dark')
-  root.classList.remove(isDark ? 'dark' : '-')
-  root.classList.add(isDark ? '-' : 'dark')
-  mode.value = isDark ? 'light' : 'dark'
-}
-
-function setModeClass(isDark: boolean): void {
-  if (isDark) {
-    useHead({
-      htmlAttrs: { class: 'dark' },
-    })
-  } else {
-    useHead({
-      htmlAttrs: { class: '' },
-    })
-  }
-}
+useHead(() => ({
+  htmlAttrs: {
+    class: isDark.value ? 'dark' : '',
+  },
+}))
 
 watchEffect(() => {
-  if (isDark) {
-    setModeClass(true)
-  } else {
-    setModeClass(false)
-  }
+  if (!import.meta.client)
+    return
+
+  document.documentElement.classList.toggle('dark', isDark.value)
 })
+
+function toggleDark() {
+  mode.value = isDark.value ? 'light' : 'dark'
+}
 
 function toggleViewTransition(event: MouseEvent) {
   const x = event.clientX
@@ -43,6 +32,7 @@ function toggleViewTransition(event: MouseEvent) {
     `circle(0px at ${x}px ${y}px)`,
     `circle(${endRadius}px at ${x}px ${y}px)`,
   ]
+  const nextIsDark = !isDark.value
   // @ts-expect-error: Transition API
   const transition = document.startViewTransition(async () => {
     toggleDark()
@@ -52,14 +42,14 @@ function toggleViewTransition(event: MouseEvent) {
   transition.ready.then(() => {
     document.documentElement.animate(
       {
-        clipPath: isDark ? [...clipPath].reverse() : clipPath,
+        clipPath: nextIsDark ? clipPath : [...clipPath].reverse(),
       },
       {
         duration: 300,
         easing: 'ease-in',
-        pseudoElement: isDark
-          ? '::view-transition-old(root)'
-          : '::view-transition-new(root)',
+        pseudoElement: nextIsDark
+          ? '::view-transition-new(root)'
+          : '::view-transition-old(root)',
       },
     )
   })
@@ -78,6 +68,8 @@ function toogleTheme(event: MouseEvent) {
 </script>
 
 <template>
-  <div title="Toggle Color Scheme" class="dark:i-icon-park-outline-moon i-icon-park-outline-sun hover"
-    @click="toogleTheme" />
+  <div
+    title="Toggle Color Scheme" class="dark:i-icon-park-outline-moon i-icon-park-outline-sun hover"
+    @click="toogleTheme"
+  />
 </template>
