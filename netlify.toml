@@ -1,0 +1,3 @@
+[build]
+  command = "pnpm generate && cp -R public/. .output/public/"
+  publish = ".output/public"
