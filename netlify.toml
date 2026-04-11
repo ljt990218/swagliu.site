@@ -1,8 +1,11 @@
 [build]
-  base = '.'
-  command = 'pnpm generate'
-  publish = 'dist'
+  command = "npm run generate"
+  publish = ".output/public"
 
 [build.environment]
-  NODE_VERSION = '20'
-  PNPM_FLAGS = '--shamefully-hoist'
+  NODE_VERSION = "20"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
