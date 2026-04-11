@@ -1,11 +1,11 @@
 [build]
-  command = "pnpm generate"
-  publish = ".output/public"
+  command = 'pnpm generate'
+  publish = 'dist'
 
 [build.environment]
-  NODE_VERSION = "20"
+  NODE_VERSION = '20'
 
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
+  from = '/*'
+  to = '/index.html'
   status = 200
