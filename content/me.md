@@ -13,6 +13,15 @@ My blog is where I post my work-in-progress ideas, practice notes, and explorati
       Auto-FoldX
     </span>
   </a>
+  <a
+    style="margin-left: 10px;display: flex; justify-content: flex-start; align-items: center;"
+    href="https://juejin.cn/post/7618211789935247398"
+    title="🤯 VS Code 每次都要手动折叠代码？这个插件让我直接解放双手"
+  >
+    <span style="margin-left: 2px;background-color: #8882;border-radius: 4px;padding: 0 4px;color: #666;">
+      掘金文章
+    </span>
+  </a>
 </div>
 
 <!-- Core team -->
